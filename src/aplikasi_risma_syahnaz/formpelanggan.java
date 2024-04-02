@@ -26,6 +26,8 @@ public class formpelanggan extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         //this.setExtendedState (MAXIMIZED_BOTH);
         konek = Koneksi.KoneksiDB();
+        mulai();
+        updateTabel();
     }
 
     
@@ -50,7 +52,7 @@ public class formpelanggan extends javax.swing.JFrame {
     
     private void simpan() {
          try {
-            String sql = "insert into pelanggan(PelangganID,NamaPelanggan,Alamat,NomorTelepon) value (?,?,?,?)";
+            String sql = "insert into pelanggan(PelangganID,NamaPelanggan,Alamat,NomorTelpon) value (?,?,?,?)";
             pst = konek.prepareStatement(sql);
             pst.setString(1, txtidpelanggan.getText());
             pst.setString(2, txtnamapelanggan.getText());

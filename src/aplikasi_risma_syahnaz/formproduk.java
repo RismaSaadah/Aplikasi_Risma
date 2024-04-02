@@ -25,6 +25,8 @@ ResultSet rst;
     public formproduk() {
         initComponents();
         konek = Koneksi.KoneksiDB();
+        mulai();
+        updateTabel();
     }
 
     public void mulai() {

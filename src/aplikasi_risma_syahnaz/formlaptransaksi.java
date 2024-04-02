@@ -226,8 +226,9 @@ public class formlaptransaksi extends javax.swing.JFrame {
  try {
      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
      tanggal = format.format(sebelumtgl.getDate());
-     sql = "select * from tbl_penjualan where TanggalPenjualan <'"+tanggal+"'";
+     sql = "select * from penjualan where TanggalPenjualan <'"+tanggal+"'";
      pst = konek.prepareStatement(sql);
+     rst = pst.executeQuery();
      tbllaptransaksi.setModel(DbUtils.resultSetToTableModel(rst));
  } catch (Exception e) {
      JOptionPane.showMessageDialog(null, "Data Tidak Tampil");
@@ -239,7 +240,7 @@ public class formlaptransaksi extends javax.swing.JFrame {
 try {
     int row = tbllaptransaksi.getSelectedRow();
     String tableKlik = (tbllaptransaksi.getModel().getValueAt (row, 1).toString());
-    String sql = "select * from tbl_detailpenjualan where DetailID=?";
+    String sql = "select * from detailpenjualan where DetailID=?";
     pst = konek.prepareStatement(sql);
     pst.setString(1, tableKlik);
     rst = pst.executeQuery();
@@ -253,10 +254,11 @@ try {
     private void btncari2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncari2ActionPerformed
     try {
      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-     tanggal = format.format(sebelumtgl.getDate());
+     tanggal = format.format(daritgl.getDate());
      tanggal2 = format.format(sampaitgl.getDate());
-     sql = "select * from tbl_penjualan where TanggalPenjualan <'"+tanggal+"'";
+     sql = "select * from penjualan where TanggalPenjualan between '"+tanggal +"' and '"+tanggal2+"'";
      pst = konek.prepareStatement(sql);
+     rst = pst.executeQuery();
      tbllaptransaksi.setModel(DbUtils.resultSetToTableModel(rst));
  } catch (Exception e) {
      JOptionPane.showMessageDialog(null, "Data Tidak Tampil");
@@ -267,8 +269,9 @@ try {
      try {
      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
      tanggal = format.format(sebelumtgl.getDate());
-     sql = "select * from tbl_penjualan where TanggalPenjualan >'"+tanggal+"'";
+     sql = "select * from penjualan where TanggalPenjualan >'"+ tanggal +"'";
      pst = konek.prepareStatement(sql);
+     rst = pst.executeQuery();
      tbllaptransaksi.setModel(DbUtils.resultSetToTableModel(rst));
  } catch (Exception e) {
      JOptionPane.showMessageDialog(null, "Data Tidak Tampil");

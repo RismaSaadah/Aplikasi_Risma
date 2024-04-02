@@ -524,7 +524,7 @@ new formpelanggan().setVisible(true);        // TODO add your handling code here
     }//GEN-LAST:event_PelangganActionPerformed
 
     private void PenjualanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PenjualanActionPerformed
-new formpenjualan().setVisible(true);
+new formjual().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_PenjualanActionPerformed
 
@@ -537,7 +537,7 @@ new formproduk().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnprodukActionPerformed
 
     private void btnpenjualanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpenjualanActionPerformed
-new formpenjualan().setVisible(true);        // TODO add your handling code here:
+new formjual().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnpenjualanActionPerformed
 
     private void btnbatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbatalActionPerformed
@@ -564,7 +564,7 @@ formlogin.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_HelpActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+new formlaptransaksi() .setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void LaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanActionPerformed

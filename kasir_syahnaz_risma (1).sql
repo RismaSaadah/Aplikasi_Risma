@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Mar 2024 pada 05.09
+-- Waktu pembuatan: 02 Apr 2024 pada 06.31
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -28,12 +28,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `detailpenjualan` (
-  `DetailID` int(11) NOT NULL,
-  `PenjualanID` int(11) NOT NULL,
-  `ProdukID` int(11) NOT NULL,
+  `DetailID` varchar(15) NOT NULL,
+  `ProdukID` varchar(15) NOT NULL,
   `JumlahProduk` int(11) NOT NULL,
-  `Subtotal` decimal(10,2) NOT NULL
+  `Subtotal` int(11) NOT NULL,
+  `Harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `detailpenjualan`
+--
+
+INSERT INTO `detailpenjualan` (`DetailID`, `ProdukID`, `JumlahProduk`, `Subtotal`, `Harga`) VALUES
+('DIDP001', '2023', 3, 6000, 2000),
+('DIDP002', '2023', 5, 10000, 2000);
 
 -- --------------------------------------------------------
 
@@ -42,7 +50,7 @@ CREATE TABLE `detailpenjualan` (
 --
 
 CREATE TABLE `login` (
-  `LoginID` int(11) NOT NULL,
+  `LoginID` varchar(15) NOT NULL,
   `Username` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `HakAkses` varchar(50) NOT NULL
@@ -53,8 +61,9 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`LoginID`, `Username`, `Password`, `HakAkses`) VALUES
-(1, 'risma', '123', 'Admin'),
-(123, 'risma', '123', '-Admin');
+('1', 'risma', '123', 'Admin'),
+('123', 'risma', '123', 'Admin'),
+('1234', 'syahnaz', '12345', 'Petugas');
 
 -- --------------------------------------------------------
 
@@ -76,12 +85,20 @@ CREATE TABLE `pelanggan` (
 --
 
 CREATE TABLE `penjualan` (
-  `PenjualanID` int(11) NOT NULL,
+  `PenjualanID` varchar(15) NOT NULL,
   `TanggalPenjualan` date NOT NULL,
-  `TotalHarga` decimal(10,2) NOT NULL,
+  `TotalHarga` int(11) NOT NULL,
   `JamPenjualan` time NOT NULL,
   `DetailID` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `penjualan`
+--
+
+INSERT INTO `penjualan` (`PenjualanID`, `TanggalPenjualan`, `TotalHarga`, `JamPenjualan`, `DetailID`) VALUES
+('IDP001', '2024-04-02', 2000, '10:50:17', 'DIDP001'),
+('IDP002', '2024-04-02', 2000, '10:51:07', 'DIDP002');
 
 -- --------------------------------------------------------
 
@@ -90,9 +107,9 @@ CREATE TABLE `penjualan` (
 --
 
 CREATE TABLE `produk` (
-  `ProdukID` int(11) NOT NULL,
+  `ProdukID` varchar(15) NOT NULL,
   `NamaProduk` varchar(255) NOT NULL,
-  `Harga` decimal(10,2) NOT NULL,
+  `Harga` int(11) NOT NULL,
   `Stok` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -101,9 +118,7 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`ProdukID`, `NamaProduk`, `Harga`, `Stok`) VALUES
-(2, 'kecap', 2000.00, 5),
-(111, 'mie', 2000.00, 100),
-(1111, 'tomat', 3000.00, 100);
+('2023', 'roti', 2000, 88);
 
 --
 -- Indexes for dumped tables
